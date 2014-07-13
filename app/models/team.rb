@@ -10,6 +10,8 @@
 #
 
 class Team < ActiveRecord::Base
+  has_many :picks
+
   validates :name, presence: true, uniqueness: true
   validates :division, presence: true
 end

@@ -31,3 +31,12 @@ csv_lines('order').each do |line|
     :order => values[1].to_i
   })
 end
+
+Player.destroy_all
+csv_lines('players').each do |line|
+  values = line.strip.split(',')
+  Player.create({
+    :name => clean_string(values[0]),
+    :position => clean_string(values[1])
+  })
+end

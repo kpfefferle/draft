@@ -7,6 +7,10 @@ public
     lines
   end
 
+  def csv_values(line)
+    line.strip.split(',')
+  end
+
   def clean_string(string)
     string.to_s.gsub!(/\A"|"\Z/, '')
     string.strip
@@ -14,7 +18,7 @@ public
 
 Team.destroy_all
 csv_lines('teams').each do |line|
-  values = line.strip.split(',')
+  values = csv_values(line)
   Team.create({
     :name => clean_string(values[0]),
     :division => clean_string(values[1])
@@ -23,7 +27,7 @@ end
 
 Pick.destroy_all
 csv_lines('order').each do |line|
-  values = line.strip.split(',')
+  values = csv_values(line)
   team = Team.find_by_name(clean_string(values[2]))
   Pick.create({
     :team => team,
@@ -34,7 +38,7 @@ end
 
 Player.destroy_all
 csv_lines('players').each do |line|
-  values = line.strip.split(',')
+  values = csv_values(line)
   Player.create({
     :name => clean_string(values[0]),
     :position => clean_string(values[1])

@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+public
+
+  def clean_string(string)
+    string.to_s.gsub!(/\A"|"\Z/, '')
+    string.strip
+  end
+
+Team.destroy_all
+teams_path = File.join(Rails.root, 'db', 'seeds', 'teams.csv')
+team_lines = File.open(teams_path).readlines
+header = team_lines.shift
+team_lines.each do |line|
+  values = line.strip.split(',')
+  Team.create({
+    :name => clean_string(values[0]),
+    :division => clean_string(values[1])
+  })
+end

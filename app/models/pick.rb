@@ -13,6 +13,7 @@
 
 class Pick < ActiveRecord::Base
   belongs_to :team
+  belongs_to :player
 
   validates :team, presence: true
   validates :round, presence: true, numericality: { only_integer: true, greater_than: 0 }

@@ -12,5 +12,32 @@
 require 'rails_helper'
 
 RSpec.describe Player, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  before(:each) do
+    @attr = {
+      :name => "Player Name",
+      :position => "Position"
+    }
+  end
+
+  describe "attributes" do
+
+    it "should create a new instance if valid" do
+      Player.create!(@attr)
+    end
+
+    describe "name" do
+
+      it "should be required" do
+        expect(Player.new(@attr.merge(:name => ""))).to_not be_valid
+      end
+    end
+
+    describe "position" do
+
+      it "should be required" do
+        expect(Player.new(@attr.merge(:position => ""))).to_not be_valid
+      end
+    end
+  end
 end

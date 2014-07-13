@@ -11,6 +11,7 @@
 
 class Team < ActiveRecord::Base
   has_many :picks
+  has_many :players, through: :picks
 
   validates :name, presence: true, uniqueness: true
   validates :division, presence: true

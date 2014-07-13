@@ -10,4 +10,9 @@
 #
 
 class Player < ActiveRecord::Base
+  has_one :pick
+  has_one :team, through: :picks
+
+  validates :name, presence: true
+  validates :position, presence: true
 end

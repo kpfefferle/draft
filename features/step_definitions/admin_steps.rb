@@ -30,9 +30,9 @@ When(/^I submit the player selection form$/) do
 end
 
 Then(/^I should be on the page to select the next player$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(current_path).to eq(edit_pick_path(Pick.next_available))
 end
 
 Then(/^I should see a confirmation that the previous player was selected$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content("success")
 end

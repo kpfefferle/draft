@@ -1,4 +1,5 @@
-h2 = "Draft Pick ##{@pick.order}"
+.page-header
+  h2 = "Round #{@pick.round}, Pick #{@pick.order}"
 = form_for @pick, url: { action: "update" }, html: { class: "form-horizontal" } do |f|
   .form-group
     label.col-sm-2.control-label Team Name

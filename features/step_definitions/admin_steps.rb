@@ -11,7 +11,7 @@ Then(/^I should see a link to record a player selection$/) do
 end
 
 When(/^I click the link to record a player selection$/) do
-  pending # express the regexp above with the code you wish you had
+  click_link "nav-admin"
 end
 
 Then(/^I should see a form to select a player for the next pick$/) do

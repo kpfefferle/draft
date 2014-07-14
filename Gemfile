@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem 'factory_girl_rails'
+gem 'slim-rails'
 
 gem 'spring',        group: :development
 

@@ -1,5 +1,9 @@
 class PicksController < ApplicationController
 
+  def index
+    @picks = Pick.completed
+  end
+
   def edit
     @pick = Pick.find(params[:id])
 

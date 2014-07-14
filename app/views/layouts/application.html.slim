@@ -12,6 +12,7 @@ html
         ul.nav.navbar-nav
           - if Pick.next_available
             li = link_to "Admin", edit_pick_path(Pick.next_available), id: "nav-admin"
+          li = link_to "Draft Results", picks_path, id:"nav-picks"
           li = link_to "Undrafted Players", players_path, id: "nav-players"
     .container
       - flash.each do |key, value|

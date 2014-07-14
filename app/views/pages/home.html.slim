@@ -15,20 +15,6 @@ table.table
 
 h2 Recent Picks
 table.table.table-hover
-  thead
-    tr
-      th Round
-      th Pick
-      th Team
-      th Division
-      th Player
-      th Position
+  = render "picks/table_header"
   tbody
-    - @recent_picks.each do |pick|
-      tr
-        td = pick.round
-        td = pick.order
-        td = pick.team.name
-        td = pick.team.division
-        td: strong = pick.player.name
-        td = pick.player.position
+    = render partial: "picks/pick", collection: @recent_picks

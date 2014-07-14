@@ -22,5 +22,6 @@ class Pick < ActiveRecord::Base
   scope :ordered, -> { order(:order) }
   scope :available, -> { where("player_id IS NULL") }
   scope :next_available, -> { available.ordered.first }
-  scope :recent, -> { where("player_id IS NOT NULL").order(order: :desc).limit(3) }
+  scope :completed, -> { where("player_id IS NOT NULL").order(:order) }
+  scope :recent, -> { completed.reorder(order: :desc).limit(3) }
 end

@@ -4,12 +4,14 @@
   .form-group
     label.col-sm-2.control-label Team Name
     .col-sm-10
-      .form-control = @pick.team.name
+      .form-control disabled="disabled"
+        = @pick.team.name
   .form-group
     label.col-sm-2.control-label Team Division
     .col-sm-10
-      .form-control = @pick.team.division
-  .form-group
+      .form-control disabled="disabled"
+        = @pick.team.division
+  .form-group.form-group-lg
     = f.label :player_id, "Player", class: "col-sm-2 control-label"
     .col-sm-10
       = f.select :player_id, options_for_select(Player.available_for_select), {}, { class: "form-control" }

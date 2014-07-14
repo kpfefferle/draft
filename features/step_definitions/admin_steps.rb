@@ -25,7 +25,7 @@ Then(/^I should see a form to select a player for the next pick$/) do
 end
 
 When(/^I submit the player selection form$/) do
-  select Player.first.name, from: "pick_player_id"
+  select Player.available.sample.name, from: "pick_player_id"
   click_button "pick_submit"
 end
 

@@ -5,6 +5,7 @@ Feature: System Administrator records draft picks
 
   Scenario: Select player with next pick
     Given I am logged in as an Administrator
+    And there are Teams, Players, and Picks
     When I visit the home page
     Then I should see a link to record a player selection
     When I click the link to record a player selection

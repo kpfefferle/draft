@@ -1,0 +1,17 @@
+h2 = "Draft Pick ##{@pick.order}"
+= form_for @pick, url: { action: "update" }, html: { class: "form-horizontal" } do |f|
+  .form-group
+    label.col-sm-2.control-label Team Name
+    .col-sm-10
+      .form-control = @pick.team.name
+  .form-group
+    label.col-sm-2.control-label Team Division
+    .col-sm-10
+      .form-control = @pick.team.division
+  .form-group
+    = f.label :player_id, "Player", class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.select :player_id, options_for_select(Player.available_for_select), {}, { class: "form-control" }
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit "Submit", { id: "pick_submit", class: "btn btn-primary" }

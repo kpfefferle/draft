@@ -15,4 +15,13 @@ class Player < ActiveRecord::Base
 
   validates :name, presence: true
   validates :position, presence: true
+
+  scope :ordered, -> { order(:name) }
+  scope :available, -> { ordered.where("NOT EXISTS (SELECT 1 FROM picks WHERE players.id = picks.player_id)") }
+
+  def self.available_for_select
+    available.inject([]) do |array, player|
+      array << [player.name.to_s, player.id.to_i]
+    end
+  end
 end

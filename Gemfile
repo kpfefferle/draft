@@ -10,8 +10,6 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'spring',        group: :development
-
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'

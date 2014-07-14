@@ -18,6 +18,7 @@ class Player < ActiveRecord::Base
 
   scope :ordered, -> { order(:name) }
   scope :available, -> { ordered.where("NOT EXISTS (SELECT 1 FROM picks WHERE players.id = picks.player_id)") }
+  scope :available_by_position, -> { available.reorder(:position, :name) }
 
   def self.available_for_select
     available.inject([]) do |array, player|

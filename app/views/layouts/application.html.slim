@@ -11,8 +11,8 @@ html
           = link_to "Draft", root_path, class: "navbar-brand"
         ul.nav.navbar-nav
           - if Pick.next_available
-            li
-              = link_to "Admin", edit_pick_path(Pick.next_available), id: "nav-admin"
+            li = link_to "Admin", edit_pick_path(Pick.next_available), id: "nav-admin"
+          li = link_to "Undrafted Players", players_path, id: "nav-players"
     .container
       - flash.each do |key, value|
         div class="alert alert-#{key}" = value

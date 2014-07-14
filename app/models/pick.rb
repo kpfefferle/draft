@@ -18,4 +18,7 @@ class Pick < ActiveRecord::Base
   validates :team, presence: true
   validates :round, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :order, presence: true, uniqueness:true, numericality: { only_integer: true, greater_than: 0 }
+
+  scope :ordered, -> { order(:order) }
+  scope :next_available_pick, -> { ordered.where("player_id IS NULL").first }
 end

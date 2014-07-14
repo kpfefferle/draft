@@ -7,7 +7,7 @@ When(/^I visit the home page$/) do
 end
 
 Then(/^I should see a link to record a player selection$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_link_to_path(edit_pick_path(Pick.next_available_pick))
 end
 
 When(/^I click the link to record a player selection$/) do

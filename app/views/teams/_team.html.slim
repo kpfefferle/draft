@@ -1,0 +1,15 @@
+h2 = team.name
+table.table
+  thead
+    tr
+      th Round
+      th Pick
+      th Player
+      th Position
+  tbody
+    - team.picks.ordered.each do |pick|
+      tr
+        td = pick.round
+        td = pick.order
+        td = pick.player ? pick.player.name : ""
+        td = pick.player ? pick.player.position : ""

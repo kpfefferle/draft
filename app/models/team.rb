@@ -15,4 +15,6 @@ class Team < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :division, presence: true
+
+  scope :ordered, -> { order(:name) }
 end

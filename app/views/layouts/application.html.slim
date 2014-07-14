@@ -10,8 +10,9 @@ html
         .navbar-header
           = link_to "Draft", root_path, class: "navbar-brand"
         ul.nav.navbar-nav
-          li
-            = link_to "Admin", edit_pick_path(Pick.next_available_pick), id: "nav-admin"
+          - if Pick.next_available
+            li
+              = link_to "Admin", edit_pick_path(Pick.next_available), id: "nav-admin"
     .container
       = yield
     = javascript_include_tag 'application'

@@ -13,7 +13,7 @@ When(/^I visit the home page$/) do
 end
 
 Then(/^I should see a link to record a player selection$/) do
-  expect(page).to have_link_to_path(edit_pick_path(Pick.next_available_pick))
+  expect(page).to have_link_to_path(edit_pick_path(Pick.next_available))
 end
 
 When(/^I click the link to record a player selection$/) do
@@ -21,7 +21,7 @@ When(/^I click the link to record a player selection$/) do
 end
 
 Then(/^I should see a form to select a player for the next pick$/) do
-  expect(page).to have_selector("form[method='post'][action='#{pick_path(Pick.next_available_pick)}']")
+  expect(page).to have_selector("form[method='post'][action='#{pick_path(Pick.next_available)}']")
 end
 
 When(/^I submit the player selection form$/) do

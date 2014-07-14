@@ -20,5 +20,6 @@ class Pick < ActiveRecord::Base
   validates :order, presence: true, uniqueness:true, numericality: { only_integer: true, greater_than: 0 }
 
   scope :ordered, -> { order(:order) }
-  scope :next_available_pick, -> { ordered.where("player_id IS NULL").first }
+  scope :available, -> { where("player_id IS NULL") }
+  scope :next_available, -> { available.ordered.first }
 end

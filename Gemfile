@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 gem 'rails', '4.1.4'
 gem 'pg'
 
@@ -17,3 +19,5 @@ group :test do
   gem 'launchy'
   gem 'rspec-rails', '~> 3.0.0'
 end
+
+gem 'rails_12factor', group: :production

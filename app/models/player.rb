@@ -22,7 +22,7 @@ class Player < ActiveRecord::Base
 
   def self.available_for_select
     available.inject([]) do |array, player|
-      array << [player.name.to_s, player.id.to_i]
+      array << ["#{player.name.to_s} - #{player.position}", player.id.to_i]
     end
   end
 end

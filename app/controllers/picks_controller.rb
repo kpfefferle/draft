@@ -5,7 +5,7 @@ class PicksController < ApplicationController
   end
 
   def edit
-    @pick = Pick.find(params[:id])
+    @pick = Pick.find_by_order(params[:id])
 
     unless @pick == Pick.next_available
       redirect_to edit_pick_path(Pick.next_available)
@@ -13,7 +13,7 @@ class PicksController < ApplicationController
   end
 
   def update
-    @pick = Pick.find(params[:id])
+    @pick = Pick.find_by_order(params[:id])
     @pick.update_attributes(pick_params)
     if @pick.save
       flash[:success] = "Draft pick submitted successfully."

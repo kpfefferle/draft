@@ -5,7 +5,7 @@ end
 Given(/^there are Teams, Players, and Picks$/) do
   5.times { FactoryGirl.create(:team) }
   5.times { FactoryGirl.create(:player) }
-  5.times { FactoryGirl.create(:pick) }
+  5.times { FactoryGirl.create(:pick, team: Team.all.sample) }
 end
 
 When(/^I visit the home page$/) do

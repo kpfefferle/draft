@@ -11,5 +11,5 @@ table.table
       tr
         td = pick.round
         td = pick.order
-        td = pick.player ? pick.player.name : ""
+        td: strong = pick.player ? pick.player.name : ""
         td = pick.player ? pick.player.position : ""

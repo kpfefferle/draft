@@ -10,3 +10,7 @@ draft to start over.
 #### Simulating the draft
 
 To simulate all picks in the draft, run `rake draft`
+
+#### Live Demo
+
+This app has been deployed to Heroku at [draft.pfefferle.co](http://draft.pfefferle.co)
